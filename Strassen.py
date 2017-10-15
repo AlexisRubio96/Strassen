@@ -33,11 +33,18 @@ def matrix_reader(file):
 
 
 """
+****************************File writing***********************************
+File writing for the result matrix
+"""
+def file_writing(file):
+    return
+
+
+"""
 ****************************Matrix multiplication type 1**************************************
 This resolves the first part of the activity(III.1): matrix multiplication defined in any linear algebra text book.
 Take both global matrices A and B, and the result matrix of text book.
 """
-
 def text_book_matrix_multiplication():
     global matrixA, matrixB, result_matrix_tb
     lenght = len(matrixA)
@@ -54,7 +61,7 @@ def text_book_matrix_multiplication():
 This resolves the second part of the activity(III.2): implement the Strassen algorithm for the multiplication of matrices of order n.
 """
 def strassen_algorithm():
-    print result_matrix_tb
+    print result_matrix_strassen
 
 
 """
@@ -78,6 +85,7 @@ def main():
     print matrixA
     matrixB = matrix_reader('Matriz_B_16_2_4.csv')
     print matrixB
+    text_book_matrix_multiplication()
 
 
 main()
