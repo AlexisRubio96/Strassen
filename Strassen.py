@@ -34,7 +34,7 @@ def matrix_reader(file):
 
 """
 ****************************File writing***********************************
-File writing for the result matrix
+CSV file writing for the result matrix
 """
 def file_writing(file):
     return
@@ -46,15 +46,16 @@ This resolves the first part of the activity(III.1): matrix multiplication defin
 Take both global matrices A and B, and the result matrix of text book.
 """
 def text_book_matrix_multiplication():
-    global matrixA, matrixB, result_matrix_tb
-    lenght = len(matrixA)
-    for i in range(lenght):
-        for j in range(lenght):
-            for k in range(lenght):
-                result_matrix_tb[i][k] = result_matrix_tb[i][k] + (matrixA[i][j] * matrixB[j][k])
-
-    print result_matrix_tb
-
+    global matrixA, matrixB, result_matrix_tb, number_tb_multiplication
+    length = len(matrixA)
+    for i in range(length):
+        result_matrix_tb.append([])
+        for j in range(length):
+            result_matrix_tb[i].append(0)
+            for k in range(length):
+                result_matrix_tb[i][j] = result_matrix_tb[i][j] + (matrixA[i][k] * matrixB[k][j])
+                number_tb_multiplication += 1   ##Checar la posicion
+    return
 
 """
 ****************************Matrix multiplication type 2**************************************
@@ -68,7 +69,9 @@ def strassen_algorithm():
 Global variables
 """
 result_matrix_strassen = []
+number_strassen_multiplication = 0
 result_matrix_tb = []
+number_tb_multiplication = 0
 matrixA = []
 matrixB = []
 
@@ -86,6 +89,7 @@ def main():
     matrixB = matrix_reader('Matriz_B_16_2_4.csv')
     print matrixB
     text_book_matrix_multiplication()
-
+    print result_matrix_tb
+    print "Number of scalar multiplications in the text book method: " + str(number_tb_multiplication)
 
 main()
