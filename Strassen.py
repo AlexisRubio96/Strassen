@@ -37,6 +37,12 @@ def matrix_reader(file):
 CSV file writing for the result matrix
 """
 def file_writing(file):
+    global result_matrix_tb
+    with open(file,'w') as new_csv:
+        writer = csv.writer(new_csv)
+
+        writer.writerows(result_matrix_tb)
+        print "File create at " + file
     return
 
 
@@ -82,8 +88,9 @@ def main():
     ##########Implementar al final###############
     input_matrixA = input("Enter the csv file name of the MatrixA: ")
     input_matrixB = input("Enter the csv file name of the MatrixB: ")
-    input_matrixRes = input("Enter the csv file to save the result: ")
     """
+    input_matrixRes = raw_input("Enter the route for the new csv file to save the result: ")
+
     matrixA = matrix_reader('Matriz_A_16_2_4.csv')
     print matrixA
     matrixB = matrix_reader('Matriz_B_16_2_4.csv')
@@ -91,5 +98,7 @@ def main():
     text_book_matrix_multiplication()
     print result_matrix_tb
     print "Number of scalar multiplications in the text book method: " + str(number_tb_multiplication)
+    file_writing(input_matrixRes)
+
 
 main()
