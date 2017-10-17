@@ -200,21 +200,20 @@ matrixB = []
 
 def main():
     global matrixA, matrixB
-    """
-    ##########Implementar al final###############
-    input_matrixA = input("Enter the csv file name of the MatrixA: ")
-    input_matrixB = input("Enter the csv file name of the MatrixB: ")
-    input_matrixRes = raw_input("Enter the route for the new csv file to save the result: ")
-    """
 
-    matrixA = matrix_reader('matriz_prueba_A.csv')
+    input_matrixA = raw_input("Enter the route of the csv file name of the MatrixA: ")
+    input_matrixB = raw_input("Enter the route ot the csv file name of the MatrixB: ")
+    input_matrixRes = raw_input("Enter the route for the new csv file to save the result: ")
+
+
+    matrixA = matrix_reader(input_matrixA)
     print matrixA
-    matrixB = matrix_reader('matriz_prueba_B.csv')
+    matrixB = matrix_reader(input_matrixB)
     print matrixB
     text_book_matrix_multiplication()
     print result_matrix_tb
     print "Number of scalar multiplications in the text book method: " + str(number_tb_multiplication)
-    # file_writing(input_matrixRes)
+    file_writing(input_matrixRes)
     print strassen_algorithm(matrixA, matrixB)
     print "Number of scalar multiplications in Strassen method: " + str(number_strassen_multiplication)
 
