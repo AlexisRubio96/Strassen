@@ -3,6 +3,7 @@ Ernesto Alejandro Cervantes Villa  A01370793
 Jorge Alexis Rubio Sumano   A01372074
 
 Strassen Algorithm Implementation
+
 """
 import csv
 
@@ -27,9 +28,6 @@ def matrix_reader(file_name):
             # rowxrow = nxn
             for i in range(len(row)):
                 matrix[row_number].append(int(row[i]))
-                # print row[i]
-                # for j in range(len(row)):
-                #   matrix[row_number][j]
             row_number += 1
     csv_file.close()
     return matrix
@@ -75,7 +73,7 @@ def text_book_matrix_multiplication():
 ****************************Matrix multiplication type 2**************************************
 This resolves the second part of the activity(III.2): implement the Strassen algorithm for the multiplication of matrices of order n.
 It divides in four methods:
-    -strassen_algorithm(temp_matrix_a, temp_matrix_b): temp_matrix_a, temp_matrix_b = matrices which will be multiplied.
+    -strassen_algorithm(temp_matrix_a, temp_matrix_b): temp_matrix_a, temp_matrix_b = matrices which will be multiplied. hola
         --THis method is recursive
         --Seven Strassen multiplications
             m1 = (a12-a22) * (b21+b22)
@@ -154,8 +152,7 @@ def strassen_algorithm(temp_matrix_a, temp_matrix_b):
         b21 = divide_matrix(temp_matrix_b, 3)
         b22 = divide_matrix(temp_matrix_b, 4)
 
-        # Seven multiplications of order n/2, solves recursively
-        #print "m1"
+        # Seven multiplications of order n/2, solves recursively  
         m1 = strassen_algorithm(matrix_sub(a12, a22), matrix_sum(b21, b22))
         m2 = strassen_algorithm(matrix_sum(a11, a22), matrix_sum(b11, b22))
         m3 = strassen_algorithm(matrix_sub(a21, a11), matrix_sum(b11, b12))
@@ -201,9 +198,9 @@ matrixB = []
 def main():
     global matrixA, matrixB
 
-    input_matrixA = raw_input("Enter the route of the csv file name of the MatrixA: ")
-    input_matrixB = raw_input("Enter the route ot the csv file name of the MatrixB: ")
-    input_matrixRes = raw_input("Enter the route for the new csv file to save the result: ")
+    input_matrixA = raw_input("Enter the name of the csv file of the MatrixA: ")
+    input_matrixB = raw_input("Enter the name ot the csv file of the MatrixB: ")
+    input_matrixRes = raw_input("Enter the name of the csv file to save the result: ")
 
 
     matrixA = matrix_reader(input_matrixA)
